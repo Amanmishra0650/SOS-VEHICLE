@@ -1,0 +1,3 @@
+# Architecture direction
+
+The rider and mechanic apps are independent Expo clients. The admin is a Vite/React client. Each will call the versioned Express API when its real feature is introduced. The API owns authorization, rescue transitions, quotes, and payment verification. Shared packages hold contracts and platform-neutral rules. PostgreSQL/PostGIS will handle spatial queries and transactional records in a later phase. Do not expose precise rider coordinates to unselected mechanics. Avoid running authenticated persistent sockets on an unsuitable serverless host. Phase 1 deliberately stops at scaffolding and a health endpoint.
